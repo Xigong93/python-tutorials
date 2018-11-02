@@ -35,6 +35,7 @@ def start_game():
     # word = input()
     print("我先开始，给我两秒钟...")
     time.sleep(1)
+    # 随机取一个成语
     random_index = random.randint(0, len(chengyu_list) - 1)
     machine_word = chengyu_list[random_index]
 
@@ -50,17 +51,21 @@ def start_game():
                     print("很遗憾您放弃了比赛,欢迎再来挑战!")
                 exit(0)
             elif person_word not in chengyu_list:
+                # 你说的成语，在成语库里没有
                 print(f'王小丫:抱歉，你说的成语"{person_word}",我没听说过!')
             elif person_word[0] != machine_word[-1]:
+                # 你说的成语，接龙接不上
                 print(f'王小丫:你说的"{person_word}"和我说的"{machine_word}",收尾接不上，请你再说一个别的成语!')
             else:
                 count += 1
-                match_word = [w for w in chengyu_list if w.startswith(person_word[-1])]
-                if machine_word:
-                    # 字库里有能接的下去
-                    machine_word = match_word[0]
+                # 查找匹配的成语列表
+                match_words = [w for w in chengyu_list if w.startswith(person_word[-1])]
+                if match_words:
+                    # 有匹配的
+                    machine_word = match_words[0]
                     break
                 else:
+                    # 没有匹配的
                     print(f"王小丫:我答不出来,恭喜你赢了，一共接上{count}轮")
 
 
