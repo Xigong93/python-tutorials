@@ -26,3 +26,7 @@
 
 
 功能实现的方式，仅供参考，学习，实验，真实的后端开发功能比这个复杂很多倍，但是基本原理是这样。
+
+
+其他:
+ * 关于一个方法的返回结果是应该抛异常，还是应该返回一个错误的值。https://stackoverflow.com/questions/77127/when-to-throw-an-exception
